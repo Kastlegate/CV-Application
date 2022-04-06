@@ -1,11 +1,19 @@
-import './App.css';
+import React, { Component } from "react";
+import Page from "./components/Page"
+import './style/App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello World!</h1>
-    </div>
-  );
+class App extends Component {
+  constructor(){
+    super();
+
+  }
+
+  render (){
+    return ( 
+      <Page />
+      )
+  }
 }
 
 export default App;
+

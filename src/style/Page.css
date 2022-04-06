@@ -1,0 +1,13 @@
+.Page{
+    width: 1000px;
+    height: 800px;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 10px 5px 5px #888888;
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
