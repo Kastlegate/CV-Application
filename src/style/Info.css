@@ -1,12 +1,38 @@
 #Info{
     margin: auto;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: fit-content;
+    min-width: 500px !important;
+    right: 0;
 }
 
 #name{
     font-size: 60px;
     color: rgb(231, 252, 253);
+    margin-left: 24px;
+    width: fit-content;
 }
 
 .infoItem{
-color: rgb(231, 252, 253)
+    color: rgb(231, 252, 253);
+    font-size: 20px;
+    margin-left: 25px;
+}
+
+#infoEditButton{
+    background-color: rgb(231, 252, 253);
+    color: rgb(55, 148, 160);
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+#infoForm{
+    
+    width: fit-content;
+    min-width: 500px !important;
 }

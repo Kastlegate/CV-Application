@@ -4,25 +4,17 @@ import Header from "../components/Header"
 import image from '../img/background.jpg'
 
 class Page extends Component {
-    constructor(){
-      super();
-        this.props = {
-            background: image
-        }
+    constructor(props){
+      super(props);
+
     }
   
     render (){ 
-        
-        const {
-        background
-        } = this.props;
-        var backgroundImage = {
-            background: 'url(' + background + ')'
-        }
+
         
       return ( 
         
-        <div className="Page" style={{backgroundImage: this.props.background}}>
+        <div className="Page">
             <Header />
         </div>
         

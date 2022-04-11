@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import Page from "./components/Page"
 import './style/App.css';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faPenToSquare  } from '@fortawesome/free-solid-svg-icons'
+library.add(faPenToSquare)
 
 class App extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
 
   }
 

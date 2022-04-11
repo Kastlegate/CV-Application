@@ -4,9 +4,9 @@ import ProfilePicture from './ProfilePicture'
 import Info from './Info'
 
 class Header extends Component {
-    constructor(){
-      super();
-
+    constructor(props){
+      super(props);
+      
     }
   
     render (){  
