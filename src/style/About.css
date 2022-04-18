@@ -1,0 +1,41 @@
+#about{
+    width: 700px;
+    color: rgb(231, 252, 253);
+    margin: auto;
+    background-color: rgba(55, 148, 160, 0.7);
+}
+
+#aboutTitle{
+    width: fit-content;
+    margin: auto;
+    font-size: 70px;
+}
+
+.aboutBar{
+    margin: auto;
+    width: 80%;
+    border-bottom: 1px solid rgb(231, 252, 253);
+    margin-bottom: 10px;
+}
+
+#aboutMeForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#aboutText{
+    width: 80%;
+    margin: auto;
+    font-size: 20px;
+}
+
+#aboutMeTextArea{
+    width: 80%;
+    height: 300px;
+    margin: auto;
+}
+
+#aboutSubmit{
+    margin: auto;
+}

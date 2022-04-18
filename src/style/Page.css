@@ -11,3 +11,8 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+#pageBody{
+    display: flex;
+    flex-direction: row;
+}

@@ -7,7 +7,6 @@ class Info extends Component {
       super(props);
        //creating a state that can be modified
       this.state = {
-            //creating values inside state
             name: '',
             phone: '',
             email: '',
@@ -18,16 +17,13 @@ class Info extends Component {
             infoEditToggle:  false    
         }
 
-        this.onClickBtn = this.onClickBtn.bind(this);
+        this.onClickEditBtn = this.onClickEditBtn.bind(this);
         this.handleMouseEnter = this.handleMouseEnter.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-
-
-
-    onClickBtn() {
-      console.log('Button has been clicked!');
+    //  functions for handling the buttons, mouse hovers, and form items
+    onClickEditBtn() {
       this.setState({
         infoEditToggle: this.state.infoEditToggle = true
       })
@@ -40,7 +36,6 @@ class Info extends Component {
 
     }
 
-
     handleMouseExit = () => {
       this.setState({
         show: this.state.show = false
@@ -48,18 +43,43 @@ class Info extends Component {
     }
 
     handleNameChange = (e) => {
+        this.setState({
+          name: e.target.value
+      })
+    }
+
+    handlePhoneChange = (e) => {
+        this.setState({
+          phone: e.target.value
+      })
+    }
+
+    handleEmailChange = (e) => {
       this.setState({
-        name: e.target.value
-
+        email: e.target.value
     })
+  }
 
-    console.log(this.state.name)
+    handleLocationChange = (e) => {
+        this.setState({
+          location: e.target.value
+      })
+   }
+
+    handleWebsiteChange = (e) => {
+        this.setState({
+          website: e.target.value
+      })
     }
 
-    handleSubmit(e) {
-      infoEditToggle: this.state.infoEditToggle = false
-      e.preventDefault();
-    }
+      // A function to handle the info form when it is submitted or canceled.
+      handleSubmit = (e) => {
+        this.setState({
+          infoEditToggle: this.state.infoEditToggle = false
+        })
+        e.preventDefault();
+      }
+
     
     
     render (){  
@@ -70,9 +90,9 @@ class Info extends Component {
         location,
         website,
         show,
-        infoEditToggle
-          
+        infoEditToggle          
       } = this.state;
+      
       // an icon for the edit button  
       const editButton = <FontAwesomeIcon icon="fa-solid fa-pen-to-square" />
       
@@ -81,15 +101,31 @@ class Info extends Component {
        <div id="Info" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseExit}>
 
          {/* Form for the Personal Information area. Shows when the infoEditToggle is toggled true */}
-         { infoEditToggle?<form id="infoForm" onMouseEnter={this.handleMouseExit}>
+         { infoEditToggle?<form id="infoForm" onMouseEnter={this.handleMouseExit}>           
+          
           <label htmlFor="editName">Name </label>
-           <input id="editName" type="text" placeholder="Enter your name" onChange={this.handleNameChange}></input>
-           <button onClick={this.handleSubmit}>Submit</button>
+           <input id="editName" type="text" placeholder="Enter your name" value={name}
+           className='formItem' onChange={this.handleNameChange} autoFocus></input>
+          <label htmlFor="editEmail">Email </label>
+           <input id="editEmail" type="text" placeholder="Enter your Email" value={email}
+           className='formItem' onChange={this.handleEmailChange}></input>         
+          <label htmlFor="editPhone">Phone </label>
+           <input id="editPhone" type="text" placeholder="Enter your Phone Number" value={phone}
+           className='formItem' onChange={this.handlePhoneChange}></input>
+           <label htmlFor="editLocation">Location </label>
+           <input id="editLocation" type="text" placeholder="Enter your Location" value={location}
+           className='formItem' onChange={this.handleLocationChange}></input>
+           <label htmlFor="editWebsite">Website </label>
+           <input id="editWebsite" type="text" placeholder="Enter your Website" value={website}
+           className='formItem' onChange={this.handleWebsiteChange}></input>
+          {/* submit and cancel buttons for the form  */}
+           <div id='buttonContainer'><button className='infoButton' onClick={this.handleSubmit}>Submit</button><button className='infoButton' 
+           onClick={this.handleSubmit}>Cancel</button></div>
           </form>:null}
          
 
-         {/* the button to edit the info. when pressed, it toggles the form for editing to show up */}
-         { show?<button id="infoEditButton" className='editButton'  onClick={this.onClickBtn}>Edit Info {editButton}</button>:null}
+         {/* the button to edit the personal info. When pressed, it toggles the form for editing to show up */}
+         { show?<button id="infoEditButton" className='editButton'  onClick={this.onClickEditBtn}>Edit Info {editButton}</button>:null}
 
          {/* when the infoEditToggle is false, displays the current information for the Info Section */}
          { !infoEditToggle?<div>

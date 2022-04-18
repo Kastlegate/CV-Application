@@ -1,0 +1,56 @@
+#skills{
+    width: 200px;
+    height: 610px;
+    background-color: rgba(55, 148, 160, 0.7);
+    color: rgb(231, 252, 253);
+}
+/* #skillsHeader{
+    height: 30px;
+    width: 200px;
+    background-color: rgb(231, 252, 253);
+    color: rgb(55, 148, 160);
+} */
+
+#SkillsTitle{
+    padding-top: 25px;
+    margin: auto;
+    width: fit-content;
+    padding-bottom: 5px;
+}
+
+.skillsBar{
+    margin: auto;
+    width: 150px;
+    border-bottom: 1px solid rgb(231, 252, 253);
+    margin-bottom: 10px;
+}
+
+#skillInput{
+    margin-top: 10px;
+    width: auto;
+}
+
+#SkillsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+.skillsClass{
+    margin-top: 15px;
+    margin: auto;
+    width: 180px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+    /* border-bottom: 1px solid rgb(231, 252, 253); */
+}
+
+.editButton{
+    background-color: rgb(231, 252, 253);
+    color: rgb(55, 148, 160);
+    font-size: 20px;
+    font-weight: 100;
+    width: fit-content;
+    margin-top: 10px;
+}

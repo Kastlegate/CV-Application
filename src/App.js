@@ -3,6 +3,7 @@ import Page from "./components/Page"
 import './style/App.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPenToSquare  } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 library.add(faPenToSquare)
 
 class App extends Component {
