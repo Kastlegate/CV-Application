@@ -1,8 +1,13 @@
 #about{
     width: 700px;
-    color: rgb(231, 252, 253);
+    min-height: 300px;
+    height: fit-content;
     margin: auto;
-    background-color: rgba(55, 148, 160, 0.7);
+    color: rgb(231, 252, 253);
+    /* margin-left: 55px; */
+    background-color: rgba(55, 148, 160, 0.7) !important;
+    margin-top: 50px;
+    margin-bottom: 25px;
 }
 
 #aboutTitle{
@@ -27,13 +32,15 @@
 #aboutText{
     width: 80%;
     margin: auto;
-    font-size: 20px;
+    font-size: 25px;
+    white-space: pre-wrap;
 }
 
 #aboutMeTextArea{
     width: 80%;
     height: 300px;
     margin: auto;
+    
 }
 
 #aboutSubmit{

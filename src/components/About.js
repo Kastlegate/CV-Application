@@ -6,8 +6,7 @@ class About extends Component {
     constructor(props){
       super(props);
       this.state = {
-        skill: { text: ''},
-        about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        about: "I am a dog. A like to tear up toys. I have two sisters. They are cats. I like to annoy them. Somedays I like to sneak mud into the house on my paws. No one suspects me.",
         show: false,
         aboutEditToggle:  false    
       }
@@ -37,10 +36,8 @@ class About extends Component {
     }
 
     handleChange = (e) => {
-      this.setState({
-        skill : {
-          text: e.target.value,
-        }
+      this.setState({        
+        about: e.target.value
       });
     };
     
@@ -49,9 +46,7 @@ class About extends Component {
     // A function to handle the info form when it is submitted or canceled.
     handleSubmit = (e) => {
       
-      this.setState({
-        about: this.state.about.concat(this.state.skill),
-        skill: { text: '' },
+      this.setState({        
         aboutEditToggle: this.state.aboutEditToggle = false
       })
       e.preventDefault();
@@ -73,9 +68,9 @@ class About extends Component {
              <div id='aboutTitle'>About Me</div>
              <div className='aboutBar'></div>
              
-             <div id='aboutText'>
+             { !aboutEditToggle?<div id='aboutText'>
                  {this.state.about}                  
-            </div>
+            </div>:null}
             { aboutEditToggle?<form id="aboutMeForm"><textarea onChange={this.handleChange}
              onMouseEnter={this.handleMouseExit} placeholder='Add a description of yourself' value={this.state.about} type="text" id="aboutMeTextArea" autoFocus /> 
             <button id='aboutSubmit' className='editButton' onClick={this.handleSubmit}>Submit</button></form>:null}

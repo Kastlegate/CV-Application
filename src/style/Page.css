@@ -1,6 +1,7 @@
 .Page{
     width: 1000px;
-    height: 800px;
+    min-height: 800px;
+    height: 100%;
     margin: auto;
     margin-bottom: 20px;
     margin-top: 20px;

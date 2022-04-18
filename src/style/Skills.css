@@ -1,6 +1,7 @@
 #skills{
     width: 200px;
-    height: 610px;
+    height: inherit !important;
+    min-height: 610px;
     background-color: rgba(55, 148, 160, 0.7);
     color: rgb(231, 252, 253);
 }

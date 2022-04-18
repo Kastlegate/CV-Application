@@ -7,7 +7,7 @@ class Skills extends Component {
       super(props);
       this.state = {
         skill: { text: ''},
-        skills: [],
+        skills: [{text: 'Destroying toys'}, {text: 'Waking up Parents'}, {text: 'Smelling Everything'}, {text: 'Catching balls when they are thrown'}, {text: 'Licking you'}],
         show: false,
         skillsEditToggle:  false    
       }
