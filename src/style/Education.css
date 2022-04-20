@@ -1,0 +1,44 @@
+#education{
+    width: 700px;
+    min-height: 300px;
+    height: fit-content;
+    margin: auto;
+    color: rgb(231, 252, 253);
+    background-color: rgba(55, 148, 160, 0.7) !important;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+#educationTitle{
+    width: fit-content;
+    margin: auto;
+    font-size: 70px;
+}
+
+#educationEditButton{
+    margin-left: 250px;
+}
+
+.schoolContainer{
+    width: 90%;
+    margin: auto;
+}
+
+.schoolName{
+    font-size: 40px;
+    width: fit-content;
+    margin: auto;
+}
+
+.schoolInfo{
+    width: fit-content;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 200px 200px;
+}
+
+.schoolItems{
+    width: 200px;
+    font-size: 20px;
+    margin-bottom: 5px;
+}

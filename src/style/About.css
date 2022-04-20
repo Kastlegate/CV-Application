@@ -4,7 +4,6 @@
     height: fit-content;
     margin: auto;
     color: rgb(231, 252, 253);
-    /* margin-left: 55px; */
     background-color: rgba(55, 148, 160, 0.7) !important;
     margin-top: 50px;
     margin-bottom: 25px;
@@ -41,6 +40,10 @@
     height: 300px;
     margin: auto;
     
+}
+
+#aboutEditButton{
+    margin-left: 250px;
 }
 
 #aboutSubmit{

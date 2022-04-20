@@ -6,7 +6,7 @@ class About extends Component {
     constructor(props){
       super(props);
       this.state = {
-        about: "I am a dog. A like to tear up toys. I have two sisters. They are cats. I like to annoy them. Somedays I like to sneak mud into the house on my paws. No one suspects me.",
+        about: '',
         show: false,
         aboutEditToggle:  false    
       }
@@ -69,7 +69,7 @@ class About extends Component {
              <div className='aboutBar'></div>
              
              { !aboutEditToggle?<div id='aboutText'>
-                 {this.state.about}                  
+                 {this.state.about ? about: "I am a dog. A like to tear up toys. I have two sisters. They are cats. I like to annoy them. Somedays I like to sneak mud into the house on my paws. No one suspects me."}                  
             </div>:null}
             { aboutEditToggle?<form id="aboutMeForm"><textarea onChange={this.handleChange}
              onMouseEnter={this.handleMouseExit} placeholder='Add a description of yourself' value={this.state.about} type="text" id="aboutMeTextArea" autoFocus /> 

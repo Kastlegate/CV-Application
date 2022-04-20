@@ -3,6 +3,7 @@ import '../style/Page.css'
 import Header from "../components/Header"
 import Skills from "../components/Skills"
 import About from "../components/About"
+import Education from "../components/Education"
 import image from '../img/background.jpg'
 
 class Page extends Component {
@@ -20,7 +21,11 @@ class Page extends Component {
             <Header />
             <div id="pageBody">
               <Skills />
-              <About />
+              <div id="bio">
+                <About />
+              <Education />
+              </div>
+              
             </div>
             
         </div>

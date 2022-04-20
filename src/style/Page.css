@@ -17,3 +17,10 @@
     display: flex;
     flex-direction: row;
 }
+
+#bio{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    
+}
