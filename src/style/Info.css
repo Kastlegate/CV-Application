@@ -49,4 +49,6 @@
     min-width: 500px !important;
     display: flex;
     flex-direction: column;
+    color: rgb(231, 252, 253);
+    font-size: 25px;
 }

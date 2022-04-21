@@ -6,8 +6,13 @@ class Education extends Component {
     constructor(props){
       super(props);
       this.state = {
-        school: { schoolName: ''},
-        education: [{schoolName: 'Dog Gone Cutie University', from: '2019', to: '2020', location: 'Puppy Town, USA', major: 'Potty Training Advanced', minor: 'Intro to fetching'}, {schoolName: 'Puppy Elementery', from: '2019', to: '2019', location: 'Puppy Town, USA', major: 'Kenneling at bed time'}],
+        schoolName: '', 
+        dateFrom: '', 
+        dateTo: '', 
+        location: '', 
+        major: '', 
+        minor: '',
+        education: [{schoolName: 'Dog Gone Cutie University', dateFrom: '2019', dateTo: '2020', location: 'Puppy Town, USA', major: 'Potty Training Advanced', minor: 'Intro to fetching'}, {schoolName: 'Puppy Elementery', dateFrom: '2019', dateTo: '2019', location: 'Puppy Town, USA', major: 'Kenneling at bed time'}],
         show: false,
         educationEditToggle:  false    
       }
@@ -36,13 +41,42 @@ class Education extends Component {
       })
     }
 
-    handleChange = (e) => {
+    handleSchoolChange = (e) => {
       this.setState({
-        school : {
-          text: e.target.value,
-        }
+        schoolName: e.target.value
       });
+      console.log(this.state.schoolName)
     };
+
+    handleDateFromChange = (e) => {
+        this.setState({
+          dateFrom: e.target.value
+        });
+      };
+
+      handleDateToChange = (e) => {
+        this.setState({
+          dateTo: e.target.value
+        });
+      };
+
+      handleLocationChange = (e) => {
+        this.setState({
+          location: e.target.value
+        });
+      };
+
+      handleMajorChange = (e) => {
+        this.setState({
+          major: e.target.value
+        });
+      };
+
+      handleMinorChange = (e) => {
+        this.setState({
+          minor: e.target.value
+        });
+      };
     
 
 
@@ -50,8 +84,15 @@ class Education extends Component {
     handleSubmit = (e) => {
       
       this.setState({
-        education: this.state.education.concat(this.state.school),
-        school: { text: '' },
+        education: this.state.education.concat({
+        schoolName: this.state.schoolName,
+        dateFrom: this.state.dateFrom,
+        dateTo: this.state.dateTo,
+        location: this.state.location,
+        major: this.state.major,
+        minor: this.state.minor
+        }),
+        schoolName: '', from: '', to: '', location: '', major: '', minor: '',
         educationEditToggle: this.state.educationEditToggle = false
       })
       e.preventDefault();
@@ -59,7 +100,12 @@ class Education extends Component {
   
     render (){  
       const {
-        school,
+        schoolName, 
+        dateFrom, 
+        dateTo, 
+        location, 
+        major, 
+        minor,
         education,
         show,
         educationEditToggle
@@ -78,7 +124,7 @@ class Education extends Component {
                       return <div className='schoolContainer'>
                           <div className='schoolName'>{school.schoolName}</div>
                           <div className='schoolInfo'>
-                              <div className='schoolItems'>{school.from} - {school.to}</div>
+                              <div className='schoolItems'>{school.dateFrom} - {school.dateTo}</div>
                               <div className='schoolItems'>{school.location}</div>
                               <div className='schoolItems'>Major: {school.major}</div>
                               <div className='schoolItems'>Minor: {school.minor}</div>
@@ -87,10 +133,32 @@ class Education extends Component {
                     })}
                   
             </div>
-            { educationEditToggle?<form><input onChange={this.handleChange}
-             onMouseEnter={this.handleMouseExit} placeholder='Add' value={school.text} type="text" id="schoolInput" autoFocus /> 
-            <button className='editButton' onClick={this.handleSubmit}>Add School</button></form>:null}
-              {/* the button to edit the personal info. When pressed, it toggles the form for editing to show up */}
+            {/* form for adding schools to education */}
+            { educationEditToggle?<form id='schoolForm' onMouseEnter={this.handleMouseExit} placeholder='Add' >
+                <label htmlFor="schoolNameInput">School </label>
+                <input className='' onChange={this.handleSchoolChange}
+                type="text" id="schoolNameInput" autoFocus /> 
+            <label htmlFor="dateFromInput">From </label>
+                <input className='' onChange={this.handleDateFromChange}
+             type="text" id="dateFromInput"/> 
+            <label htmlFor="dateToInput">To </label>
+                <input className='' onChange={this.handleDateToChange}
+            type="text" id="dateToInput"/> 
+             <label htmlFor="locationInput">Location </label>
+                <input className='' onChange={this.handleLocationChange}
+            type="text" id="locationInput"/> 
+                <label htmlFor="majorInput">Major </label>
+                <input className='' onChange={this.handleMajorChange}
+            type="text" id="majorInput"/> 
+                <label htmlFor="minorInput">Minor </label>
+                <input className='' onChange={this.handleMinorChange}
+            type="text" id="minorInput"/> 
+
+
+            <button id='addSchoolButton' className='editButton' onClick={this.handleSubmit}>Add School</button>
+            
+            </form>:null}
+              {/* the button to edit the school info. When pressed, it toggles the form for editing to show up */}
               { show?<button id="educationEditButton" className='editButton'  onClick={this.onClickEditBtn}>Edit School {editButton}</button>:null}
            </div>
         )
