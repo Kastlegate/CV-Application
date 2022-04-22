@@ -12,7 +12,7 @@ class Education extends Component {
         location: '', 
         major: '', 
         minor: '',
-        education: [{schoolName: 'Dog Gone Cutie University', dateFrom: '2019', dateTo: '2020', location: 'Puppy Town, USA', major: 'Potty Training Advanced', minor: 'Intro to fetching'}, {schoolName: 'Puppy Elementery', dateFrom: '2019', dateTo: '2019', location: 'Puppy Town, USA', major: 'Kenneling at bed time'}],
+        education: [{schoolName: 'Dog Gone Cutie University', dateFrom: '2019', dateTo: '2020', location: 'Kenneltucky, USA', major: 'Potty Training Advanced', minor: 'Intro to fetching'}, {schoolName: 'Puppy Elementery', dateFrom: '2019', dateTo: '2019', location: 'Kenneltucky, USA', major: 'Kenneling at bed time'}],
         show: false,
         educationEditToggle:  false    
       }

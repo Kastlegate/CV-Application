@@ -1,0 +1,57 @@
+#workHistory{
+    width: 700px;
+    min-height: 300px;
+    height: fit-content;
+    margin: auto;
+    color: rgb(231, 252, 253);
+    background-color: rgba(55, 148, 160, 0.7) !important;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+#workTitle{
+    width: fit-content;
+    margin: auto;
+    font-size: 70px;
+}
+
+#workEditButton{
+    margin-left: 250px;
+}
+
+.workContainer{
+    width: 90%;
+    margin: auto;
+}
+
+.company{
+    font-size: 40px;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.workInfo{
+    width: fit-content;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 250px 250px;
+}
+
+.workItems{
+    width: 200px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#workForm{
+    width: 80%;
+    margin: auto;
+ display: grid;
+ grid-template-columns: 70px 500px;
+}
+
+#addWorkButton{
+    width: 200px;
+    margin-left: 200px;
+}

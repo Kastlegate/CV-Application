@@ -4,6 +4,7 @@ import Header from "../components/Header"
 import Skills from "../components/Skills"
 import About from "../components/About"
 import Education from "../components/Education"
+import Work from "../components/Work"
 import image from '../img/background.jpg'
 
 class Page extends Component {
@@ -24,6 +25,7 @@ class Page extends Component {
               <div id="bio">
                 <About />
               <Education />
+              <Work />
               </div>
               
             </div>
