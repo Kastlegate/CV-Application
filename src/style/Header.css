@@ -6,5 +6,6 @@
     flex-direction: row;
     justify-content: space-between;
     padding-bottom: 20px;
+    -webkit-print-color-adjust: exact; 
 }
 

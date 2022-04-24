@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import '../style/Skills.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import uniqid from "uniqid";
 
 class Skills extends Component {
     constructor(props){
       super(props);
       this.state = {
-        skill: { text: ''},
-        skills: [{text: 'Destroying toys'}, {text: 'Waking up Parents'}, {text: 'Smelling Everything'}, {text: 'Catching balls when they are thrown'}, {text: 'Licking you'}],
+        skill: {  id: uniqid(), text: '' },
+        skills: [{id: uniqid(), text: 'Destroying toys'}, {id: uniqid(), text: 'Waking up Parents'}, {id: uniqid(), text: 'Smelling Everything'}, {id: uniqid(), text: 'Catching balls when they are thrown'}, {id: uniqid(), text: 'Licking you'}],
         show: false,
         skillsEditToggle:  false    
       }
@@ -40,9 +41,16 @@ class Skills extends Component {
       this.setState({
         skill : {
           text: e.target.value,
+          id: this.state.skill.id,
         }
       });
-    };
+    }
+    // Uses filter, for arrays, to create a new array without the skill.id and assign the new array to the skills array 
+    removeSkill = (id) => {
+      this.setState({
+        skills: this.state.skills.filter((x) => x.id !== id)
+      })
+    }
     
 
 
@@ -51,7 +59,7 @@ class Skills extends Component {
       
       this.setState({
         skills: this.state.skills.concat(this.state.skill),
-        skill: { text: '' },
+        skill: { id: uniqid(), text: '' },
         skillsEditToggle: this.state.skillsEditToggle = false
       })
       e.preventDefault();
@@ -68,6 +76,9 @@ class Skills extends Component {
      // an icon for the edit button  
      const editButton = <FontAwesomeIcon icon="fa-solid fa-pen-to-square" />
 
+     // an icon for a trash can for the delete button
+     const trash = <FontAwesomeIcon icon="fa-solid fa-trash-can" />
+
       return (         
            <div id="skills" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseExit}>
              <h1 id='SkillsTitle'>Skills</h1>
@@ -75,7 +86,7 @@ class Skills extends Component {
              <div id='SkillsContainer'>
                 
                     {skills.map((skill) => {
-                      return <div className='skillsClass'>{skill.text}</div>;
+                      return <div key={skill.id} className='skillsClass'>{skillsEditToggle?<div onClick={() => this.removeSkill(skill.id)}>{trash}</div>:null} <div>{skill.text}</div> </div>;
                     })}
                   
             </div>
