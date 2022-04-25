@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import '../style/Work.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import uniqid from "uniqid";
 
 class Work extends Component {
     constructor(props){
@@ -11,7 +12,7 @@ class Work extends Component {
         dateTo: '', 
         location: '', 
         position: '',
-        work: [{company: 'Black Lab-oratories', dateFrom: '2020', dateTo: '2022', location: 'Kenneltucky, USA', position: 'Senior Treat Taster'}],
+        work: [{id: uniqid(), company: 'Black Lab-oratories', dateFrom: '2020', dateTo: '2022', location: 'Kenneltucky, USA', position: 'Senior Treat Taster'}],
         show: false,
         workEditToggle:  false    
       }
@@ -70,11 +71,18 @@ class Work extends Component {
         });
       };
 
+      removeWork = (id) => {
+        this.setState({
+          work: this.state.work.filter((x) => x.id !== id)
+        })
+      }
+
     // A function to handle the info form when it is submitted or canceled.
     handleSubmit = (e) => {
       
       this.setState({
         work: this.state.work.concat({
+        id: uniqid(),
         company: this.state.company,
         dateFrom: this.state.dateFrom,
         dateTo: this.state.dateTo,
@@ -101,6 +109,8 @@ class Work extends Component {
 
      // an icon for the edit button  
      const editButton = <FontAwesomeIcon icon="fa-solid fa-pen-to-square" />
+     // an icon for a trash can for the delete button
+     const trash = <FontAwesomeIcon icon="fa-solid fa-trash-can" />
 
       return (         
            <div id="workHistory" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseExit}>
@@ -109,8 +119,8 @@ class Work extends Component {
              <div id='workContainer'>
 
                     {work.map((work) => {
-                      return <div className='workContainer'>
-                          <div className='company'>{work.company}</div>
+                      return <div className='workContainer' key={work.id}>
+                          <div className="deleteSchoolClass"><div className='company'>{work.company}</div> {show?<div className="trashCan" onClick={() => this.removeWork(work.id)} >{trash}</div>:null}</div>
                           <div className='workInfo'>
                               <div className='workItems'>{work.dateFrom} - {work.dateTo}</div>
                               <div className='workItems'>{work.location}</div>

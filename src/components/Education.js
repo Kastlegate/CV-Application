@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import '../style/Education.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import uniqid from "uniqid";
 
 class Education extends Component {
     constructor(props){
@@ -12,7 +13,7 @@ class Education extends Component {
         location: '', 
         major: '', 
         minor: '',
-        education: [{schoolName: 'Dog Gone Cutie University', dateFrom: '2019', dateTo: '2020', location: 'Kenneltucky, USA', major: 'Potty Training Advanced', minor: 'Intro to fetching'}, {schoolName: 'Puppy Elementery', dateFrom: '2019', dateTo: '2019', location: 'Kenneltucky, USA', major: 'Kenneling at bed time'}],
+        education: [{id: uniqid(), schoolName: 'Dog Gone Cutie University', dateFrom: '2019', dateTo: '2020', location: 'Kenneltucky, USA', major: 'Potty Training Advanced', minor: 'Intro to fetching'}, {id: uniqid(), schoolName: 'Puppy Elementery', dateFrom: '2019', dateTo: '2019', location: 'Kenneltucky, USA', major: 'Kenneling at bed time'}],
         show: false,
         educationEditToggle:  false    
       }
@@ -45,7 +46,6 @@ class Education extends Component {
       this.setState({
         schoolName: e.target.value
       });
-      console.log(this.state.schoolName)
     };
 
     handleDateFromChange = (e) => {
@@ -77,6 +77,14 @@ class Education extends Component {
           minor: e.target.value
         });
       };
+
+
+    // Uses filter, for arrays, to create a new array without the skill.id and assign the new array to the skills array 
+    removeSchool = (id) => {
+      this.setState({
+        education: this.state.education.filter((x) => x.id !== id)
+      })
+    }
     
 
 
@@ -85,6 +93,7 @@ class Education extends Component {
       
       this.setState({
         education: this.state.education.concat({
+        id: uniqid(),
         schoolName: this.state.schoolName,
         dateFrom: this.state.dateFrom,
         dateTo: this.state.dateTo,
@@ -113,6 +122,8 @@ class Education extends Component {
 
      // an icon for the edit button  
      const editButton = <FontAwesomeIcon icon="fa-solid fa-pen-to-square" />
+     // an icon for a trash can for the delete button
+     const trash = <FontAwesomeIcon icon="fa-solid fa-trash-can" />
 
       return (         
            <div id="education" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseExit}>
@@ -121,8 +132,9 @@ class Education extends Component {
              <div id='educationContainer'>
 
                     {education.map((school) => {
-                      return <div className='schoolContainer'>
-                          <div className='schoolName'>{school.schoolName}</div>
+                      return <div className='schoolContainer'  key={school.id} >
+                          <div className='deleteSchoolClass'><div className='schoolName'>{school.schoolName}  </div>
+                          {show?<div className="trashCan" onClick={() => this.removeSchool(school.id)} >{trash}</div>:null}</div>
                           <div className='schoolInfo'>
                               <div className='schoolItems'>{school.dateFrom} - {school.dateTo}</div>
                               <div className='schoolItems'>{school.location}</div>
@@ -159,7 +171,7 @@ class Education extends Component {
             
             </form>:null}
               {/* the button to edit the school info. When pressed, it toggles the form for editing to show up */}
-              { show?<button id="educationEditButton" className='editButton'  onClick={this.onClickEditBtn}>Edit School {editButton}</button>:null}
+              { show?<button id="educationEditButton" className='editButton'  onClick={this.onClickEditBtn}>Add a New School {editButton}</button>:null}
            </div>
         )
     }

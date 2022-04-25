@@ -25,10 +25,10 @@
 }
 
 .schoolName{
-    font-size: 40px;
+    font-size: 30px;
     width: fit-content;
     margin: auto;
-    margin-bottom: 10px;
+
 }
 
 .schoolInfo{
@@ -54,4 +54,17 @@
 #addSchoolButton{
     width: 150px;
     margin-left: 200px;
+}
+
+.deleteSchoolClass{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trashCan{
+    margin-left: 3px;
 }

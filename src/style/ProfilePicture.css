@@ -4,3 +4,23 @@
     border-radius: 100px;
     margin: 10px 10px 10px 50px;
 }
+
+#pictureContainer{
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+#pictureEditButton{
+    display: block;
+    width: 130px;
+    text-align: center;
+    height: 25px;
+    margin-left: 60px;
+}
+
+
+input[type="file"] {
+    display: none;
+}

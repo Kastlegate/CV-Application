@@ -42,7 +42,7 @@
     margin: auto;
     width: 180px;
     padding-bottom: 10px;
-    font-size: 15px;
+    font-size: 20px;
     text-align: left;
     /* border-bottom: 1px solid rgb(231, 252, 253); */
     display: flex;
@@ -56,4 +56,8 @@
     font-weight: 100;
     width: fit-content;
     margin-top: 10px;
+}
+
+.trashCanSkills{
+    margin-right: 3px;
 }

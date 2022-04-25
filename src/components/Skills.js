@@ -10,7 +10,7 @@ class Skills extends Component {
         skill: {  id: uniqid(), text: '' },
         skills: [{id: uniqid(), text: 'Destroying toys'}, {id: uniqid(), text: 'Waking up Parents'}, {id: uniqid(), text: 'Smelling Everything'}, {id: uniqid(), text: 'Catching balls when they are thrown'}, {id: uniqid(), text: 'Licking you'}],
         show: false,
-        skillsEditToggle:  false    
+        skillsEditToggle:  false
       }
 
       this.onClickEditBtn = this.onClickEditBtn.bind(this);
@@ -52,8 +52,6 @@ class Skills extends Component {
       })
     }
     
-
-
     // A function to handle the info form when it is submitted or canceled.
     handleSubmit = (e) => {
       
@@ -70,7 +68,8 @@ class Skills extends Component {
         skill,
         skills,
         show,
-        skillsEditToggle
+        skillsEditToggle,
+        showDeleteButtons
      } = this.state;
 
      // an icon for the edit button  
@@ -86,7 +85,7 @@ class Skills extends Component {
              <div id='SkillsContainer'>
                 
                     {skills.map((skill) => {
-                      return <div key={skill.id} className='skillsClass'>{skillsEditToggle?<div onClick={() => this.removeSkill(skill.id)}>{trash}</div>:null} <div>{skill.text}</div> </div>;
+                      return <div key={skill.id} className='skillsClass'>{show?<div className="trashCanSkills" onClick={() => this.removeSkill(skill.id)} >{trash}</div>:null} <div>{skill.text}</div> </div>;
                     })}
                   
             </div>
